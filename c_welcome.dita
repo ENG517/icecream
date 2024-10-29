@@ -2,7 +2,6 @@
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="welcome">
   <title>Welcome to the Ice Cream Maker FG-05 Service Manual</title>
-   
   <shortdesc>
     This service manual will show you the main tasks needed to keep your FG-05 making awesome and delish ice cream for years and years to come.
   </shortdesc>
@@ -16,12 +15,8 @@
   <conbody>
     <image href="machine.jpg" id="machine"/>
     <p>
-      This manual contains the following modules:
+      Enter welcoming content here.
     </p>
-    <ul>
-      <li>How to clean the FG-05 machine</li>
-      <li>How to fix the FG-05 machine</li>
-    </ul>
     <p id="warning">
       Always unplug the ice cream machine before cleaning or servicing it.
     </p>
