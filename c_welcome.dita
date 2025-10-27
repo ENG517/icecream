@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="welcome">
+  <title>Welcome to the Ice Cream Maker FG-05 Service Manual</title>
+  <shortdesc>
+    This service manual will show you the main tasks needed to keep your FG-05 making awesome and delish ice cream for years and years to come.
+  </shortdesc>
+  <prolog>
+    <author type="creator">Chris Lindgren</author>
+    <copyright>
+      <copyryear year="2011"/>
+      <copyrholder>Ice Makers</copyrholder>
+    </copyright>
+  </prolog>
+  <conbody>
+    <image href="machine.jpg" id="machine"/>
+    <p>
+      Enter welcoming content here.
+    </p>
+    <p id="warning">
+      Always unplug the ice cream machine before cleaning or servicing it.
+    </p>
+    <p id="credits">
+      Page created at <xref href="http://www.ncsu.edu" format="html" scope="external">North Carolina State University</xref>.
+    </p>
+  </conbody>
+</concept>
