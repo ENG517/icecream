@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA MAP//EN" "map.dtd">
+
+<map>
+  <topicref type="concept" href="c_welcome.dita"/>
+  <topicref type="task" href="t_clean.dita"/>
+  <topicref type="task" href="t_fix.dita"/>
+</map>
