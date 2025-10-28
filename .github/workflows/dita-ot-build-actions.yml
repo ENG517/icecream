@@ -66,7 +66,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload out/html5-bootstrap folder
-          path: 'html5-bootstrap'
+          path: 'out'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
