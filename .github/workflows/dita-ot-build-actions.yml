@@ -14,6 +14,11 @@ jobs:
       - name: Build HTML5 + Bootstrap
         uses: dita-ot/dita-ot-action@master
         with:
+          dita-ot-version: 3.5.4
+          install: |
+            # Install plugins
+            dita install fox.jason.extend.css
+            dita install net.infotexture.dita-bootstrap
           plugins: |
             net.infotexture.dita-bootstrap
           input: _testmap.ditamap
