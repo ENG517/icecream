@@ -24,7 +24,6 @@ jobs:
           install: |
             # Install plugins
             dita install fox.jason.extend.css
-            # dita install net.infotexture.dita-bootstrap
           plugins: |
             net.infotexture.dita-bootstrap
           input: _testmap.ditamap
@@ -65,8 +64,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload out/html5-bootstrap folder
-          path: 'out'
+          # Upload out folder
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
