@@ -2,8 +2,14 @@ name: Continuous Integration
 'on':
   push:
     # Run on pushes to main only
-    branches:
-      - main
+    branches: ["main"]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-dita:
     name: Build DITA Outputs
@@ -47,9 +53,23 @@ jobs:
           path: 'out'
 
   # Deployment job
-  # deploy:
-  #   # Add a dependency to the build job
-  #   needs: build-dita
+  deploy:
+    # Add a dependency to the build job
+    needs: build-dita
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload out/html5-bootstrap folder
+          path: 'out/html5-bootstrap'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
   #   permissions:
