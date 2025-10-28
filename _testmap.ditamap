@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="basic-map" title="Ice Cream">
+
+  <!-- <topicref type="concept" href="c_welcome.dita" />
+  <topicref type="task" href="t_clean.dita" />
+  <topicref type="task" href="t_fix.dita" /> -->
+
+  <topicref type="concept" href="c_welcome.dita" />
+  <topicref type="task" href="t_clean.dita" navtitle="Clean" locktitle="yes"/>
+  <topicref type="task" href="t_fix.dita" navtitle="Fix" locktitle="yes"/>
+</map>
