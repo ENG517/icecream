@@ -29,13 +29,13 @@ jobs:
         uses: dita-ot/dita-ot-action@master
         with:
             dita-ot-version: 3.5.4
-            install: |
-              dita install org.jung.xmltask
-              dita install fox.jason.extend.css
-            plugins: |
-              org.doctales.xmltask
-              fox.jason.extend.css
-              fox.jason.prismjs
+            # install: |
+            #   dita install org.jung.xmltask
+            #   dita install fox.jason.extend.css
+            # plugins: |
+              # org.doctales.xmltask
+              # fox.jason.extend.css
+              # fox.jason.prismjs
             input: '_testmap.ditamap'
             transtype: 'pdf'
             output-path: out
