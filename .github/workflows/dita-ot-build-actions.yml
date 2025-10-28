@@ -51,4 +51,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: html5-bootstrap # The folder the action should deploy.
+          folder: out # The folder the action should deploy.
