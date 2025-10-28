@@ -11,12 +11,14 @@ permissions:
   id-token: write
 
 jobs:
-  build-dita:
-    name: Build DITA Outputs
+  build-and-deploy:
+    name: Build DITA Outputs and Deploy
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+      - name: git Checkout 🛎️
+        uses: actions/checkout@v4
+
       - name: Build HTML5 + Bootstrap
         uses: dita-ot/dita-ot-action@master
         with:
@@ -30,10 +32,36 @@ jobs:
           transtype: html5-bootstrap
           output-path: out
 
-      - name: Build PDF using DITA-OT 3.5.4
-        uses: dita-ot/dita-ot-action@master
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-            dita-ot-version: 3.5.4
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: out # The folder the action should deploy.
+
+  # build-dita:
+  #   name: Build DITA Outputs
+  #   runs-on: ubuntu-latest
+    # steps:
+    #   - name: Git checkout
+    #     uses: actions/checkout@v2
+      # - name: Build HTML5 + Bootstrap
+      #   uses: dita-ot/dita-ot-action@master
+      #   with:
+      #     dita-ot-version: 3.5.4
+      #     install: |
+      #       # Install plugins
+      #       dita install fox.jason.extend.css
+      #     plugins: |
+      #       net.infotexture.dita-bootstrap
+      #     input: _testmap.ditamap
+      #     transtype: html5-bootstrap
+      #     output-path: out
+
+      # - name: Build PDF using DITA-OT 3.5.4
+      #   uses: dita-ot/dita-ot-action@master
+      #   with:
+      #       dita-ot-version: 3.5.4
             # install: |
             #   dita install org.jung.xmltask
             #   dita install fox.jason.extend.css
@@ -41,34 +69,34 @@ jobs:
               # org.doctales.xmltask
               # fox.jason.extend.css
               # fox.jason.prismjs
-            input: '_testmap.ditamap'
-            transtype: 'pdf'
-            output-path: out
+            # input: '_testmap.ditamap'
+            # transtype: 'pdf'
+            # output-path: out
 
-      - name: Upload DITA Output to a ZIP file
-        uses: actions/upload-artifact@v4
-        with:
-          name: dita-artifact
-          path: 'out'
+      # - name: Upload DITA Output to a ZIP file
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: dita-artifact
+      #     path: 'out'
 
   # Deployment job
-  deploy:
-    # Add a dependency to the build job
-    needs: build-dita
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload out folder
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  # deploy:
+  #   # Add a dependency to the build job
+  #   needs: build-dita
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Setup Pages
+  #       uses: actions/configure-pages@v5
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         # Upload out folder
+  #         path: '.'
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
 
   #   # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
   #   permissions:
