@@ -18,7 +18,7 @@ jobs:
           install: |
             # Install plugins
             dita install fox.jason.extend.css
-            dita install net.infotexture.dita-bootstrap
+            # dita install net.infotexture.dita-bootstrap
           plugins: |
             net.infotexture.dita-bootstrap
           input: _testmap.ditamap
